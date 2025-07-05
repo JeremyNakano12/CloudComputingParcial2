@@ -350,7 +350,6 @@ const deletePaciente = async (id, nombre, apellido) => {
                         <div className="patient-details">
                           <p><strong>Peso:</strong> {paciente.peso} kg</p>
                           <p><strong>Talla:</strong> {paciente.talla} m</p>
-                          <p><strong>IMC:</strong> {(paciente.peso / Math.pow(paciente.talla, 2)).toFixed(2)}</p>
                           <p><strong>Diagnóstico:</strong> {paciente.diagnostico}</p>
                           <p><strong>Fecha:</strong> {new Date(paciente.fecha_registro).toLocaleDateString('es-ES')}</p>
                         </div>
