@@ -14,11 +14,7 @@ services:
       - ./backend/migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - app-network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U admin -d pacientes_db"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
+    
 
   # Backend con Node.js
   backend:
@@ -37,8 +33,7 @@ services:
     ports:
       - "3001:3001"
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     networks:
       - app-network
     volumes:
